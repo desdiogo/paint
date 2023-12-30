@@ -1,0 +1,18 @@
+name: Test Secret
+
+on:
+  push:
+    branches:
+      - main # The branch name your are commit the new changes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Push
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v3
+        with: # Set the secret as an input
+          super_secret: ${{ secrets.SuperSecret }}
+        env: # Or as an environment variable
+          super_secret: ${{ secrets.SuperSecret }}
