@@ -22,9 +22,9 @@ jobs:
       - name: Push
         uses: s0/git-publish-subdir-action@develop
         env:
-          REPO: self
+          REPO: git@github.com:desdiogo/paint.git
           BRANCH: build # The branch name where you want to push the assets
           FOLDER: dist # The directory where your assets are generated
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          # SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           MESSAGE: "Build: ({sha}) {msg}" # The commit message
