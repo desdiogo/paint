@@ -1,18 +1,18 @@
-name: Test Secret
+name: Imprimir Segredo
 
 on:
   push:
     branches:
-      - main # The branch name your are commit the new changes
+      - main
 
 jobs:
-  build:
+  imprimir-segredo:
     runs-on: ubuntu-latest
-    name: Build and Push
+
     steps:
-      - name: git-checkout
-        uses: actions/checkout@v3
-        with: # Set the secret as an input
-          super_secret: ${{ secrets.DEPLOY_PRIVATE_KEY  }}
-        env: # Or as an environment variable
-          super_secret: ${{ secrets.DEPLOY_PRIVATE_KEY  }}
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Imprimir Segredo
+        run: |
+          echo "O valor do meu segredo é ${{ secrets.DEPLOY_PRIVATE_KEY   }}"
