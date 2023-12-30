@@ -39,7 +39,7 @@ jobs:
         run: pnpm install
 
       - name: LS
-        run: /home/runner/work/paint/paint/
+        run: ls /home/runner/work/paint/paint/
       # - name: Push
       #   uses: s0/git-publish-subdir-action@develop
       #   env:
