@@ -90,6 +90,13 @@ function drawTriangle(event: MouseEvent) {
   fillColor?.checked ? context?.fill() : context?.stroke()
 }
 
+function drawLine(event: MouseEvent) {
+  context?.beginPath()
+  context?.moveTo(previousMouseX, previousMouseY)
+  context?.lineTo(event.offsetX, event.offsetY)
+  context?.stroke()
+}
+
 function drawBrush(event: MouseEvent) {
   context?.lineTo(event.offsetX, event.offsetY)
   context?.stroke()
@@ -116,6 +123,9 @@ function drawing(event: MouseEvent) {
       break;
     case 'triangle':
       drawTriangle(event)
+      break;
+    case 'line':
+      drawLine(event)
       break;
     case 'brush':
       drawBrush(event)
@@ -146,9 +156,12 @@ for (const button of colorButtons) {
 
 sizeSlider?.addEventListener('change', () => brusWidth = parseInt(sizeSlider.value, 10))
 
-colorPicker?.addEventListener('change', () => {
+colorPicker?.addEventListener('input', () => {
   colorPicker.parentElement!.style.background = colorPicker.value
-  colorPicker.parentElement?.click()
+  colorPicker.parentElement!.click()
+
+  colorPicker.select()
+  selectedColor = colorPicker.value
 })
 
 clearcanvasButton?.addEventListener('click', () => {

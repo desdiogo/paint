@@ -1,3 +1,3 @@
 /// <reference types="vite/client" />
 
-type SelectdTool = 'rectangle' | 'circle' | 'triangle' | 'brush' | 'eraser'
+type SelectdTool = 'rectangle' | 'circle' | 'triangle' | 'line' | 'brush' | 'eraser'
