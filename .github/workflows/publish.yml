@@ -40,10 +40,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-  build:
-    runs-on: ubuntu-latest
-    name: Build and Push
-    steps:
       - name: Push
         uses: s0/git-publish-subdir-action@develop
         env:
